@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "@/components/atoms/ReduxProvider";
+import { themeInitializerScript } from "./_components/theme-script";
 
 
 const geistSans = Geist({
@@ -22,6 +23,9 @@ export const metadata = {
 export default function MainLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializerScript }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
